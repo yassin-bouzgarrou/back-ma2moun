@@ -4,9 +4,12 @@ const bcrypt = require('bcryptjs');
 
 
 const registerUser = async (req, res) => {
+  console.log("back is here");
+  
   const {  email, password } = req.body;
   const user = await User.create({  email, password });
   res.status(201).json({ token: generateToken(user._id) });
+
 };
 
 const loginUser = async (req, res) => {
